@@ -45,6 +45,31 @@ Solution
 In the
 [commit here](https://github.com/AlexMercer-dev/datashield-web/pull/6/commits/d76658afa4964698f6ffaebe4968110117c1b5bb#diff-66890216d671b1c02636e231ae893ae7e4833c163ffa1606dc58c85a7250a9e9),
 file `docs/static/js/analytics-enhanced.js`, line 144.
+Then you want to search through **all commits** for the flag pattern:
+
+```bash
+git clone <repo-url>
+cd <repo-name>
+
+# Search all commit diffs for the flag format
+git log -p --all | grep -i "SK-CERT{"
+```
+
+If that's too slow or the history is large:
+
+```bash
+# Faster - search all historical versions of all files
+git grep "SK-CERT{" $(git rev-list --all)
+```
+
+Or if you want more context around the match:
+
+```bash
+# Shows commit hash, file, and surrounding lines
+git log -p --all -S "SK-CERT{" --source --all
+```
+
+The `-S` flag (pickaxe) is the most efficient — it finds commits where that string was **added or removed**, so it catches malicious code that was later deleted too, which is exactly the scenario this challenge describes.
 
 ```
 SK-CERT{m4l1c10us_c0mm1t_d3t3ct3d}
