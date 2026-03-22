@@ -110,8 +110,18 @@ sherlock evanmassey1976
 It will scan across platforms and return wherever that username exists. Then manually visit each hit and look for suspicious posts/content that might hide a flag.
 
 If you don't have Sherlock installed:
+
+```bash
+sudo apt install sherlock
+```
+or
+
 ```bash
 pip install sherlock-project --break-system-packages
+```
+then
+
+```bash
 sherlock evanmassey1976
 ```
 
