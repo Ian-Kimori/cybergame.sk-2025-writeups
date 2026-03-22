@@ -92,6 +92,28 @@ across the internet. Where else might he be active?
 <summary>
 Solution
 </summary>
+if you want more context around the match:
+
+```bash
+# Shows commit hash, file, and surrounding lines
+git log -p --all -S "SK-CERT{" --source --all
+```
+Perfect. Now you have:
+
+- **Username:** `evanmassey1976` (from the email `evanmassey1976@proton.me`)
+
+**Next step — run Sherlock:**
+```bash
+sherlock evanmassey1976
+```
+
+It will scan across platforms and return wherever that username exists. Then manually visit each hit and look for suspicious posts/content that might hide a flag.
+
+If you don't have Sherlock installed:
+```bash
+pip install sherlock-project --break-system-packages
+sherlock evanmassey1976
+```
 
 Found posts from `evanmassey1976` on reddit.com, the post with the flag
 is: https://www.reddit.com/user/evanmassey1976/comments/1kpmiaw/security_practices_that_are_actually_underrated/
