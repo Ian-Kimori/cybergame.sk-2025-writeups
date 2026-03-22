@@ -49,8 +49,13 @@ Then you want to search through **all commits** for the flag pattern:
 
 ```bash
 git clone <repo-url>
-cd <repo-name>
+```
 
+```bash
+cd <repo-name>
+```
+
+```bash
 # Search all commit diffs for the flag format
 git log -p --all | grep -i "SK-CERT{"
 ```
